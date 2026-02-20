@@ -1,4 +1,9 @@
 class Solution {
+    public void swap(int[] arr,int a,int b){
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
+    }
     public int missingNumber(int[] nums) {
         // int n=nums.length;
         // boolean[] arr=new boolean[n+1];
@@ -10,10 +15,21 @@ class Solution {
         // }
         // return -1;
 
+        // int n=nums.length;
+        // Arrays.sort(nums);
+        // for(int i=0;i<n;i++){
+        //     if(nums[i]!=i) return nums[i]-1;
+        // }
+        // return n;
+
         int n=nums.length;
-        Arrays.sort(nums);
-        for(int i=0;i<n;i++){
-            if(nums[i]!=i) return nums[i]-1;
+        int i=0;
+        while(i<n){
+            if(nums[i]==i || nums[i]==n) i++;
+            else swap(nums,i,nums[i]);
+        }
+        for(i=0;i<n;i++){
+            if(i!=nums[i]) return i;
         }
         return n;
     }
