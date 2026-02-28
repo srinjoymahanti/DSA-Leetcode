@@ -37,11 +37,10 @@ public class Solution {
         for(int i=1;i<=n;i++){
             fast=fast.next;
         }
-        while(fast!=null && slow!=null){
-            if(slow==fast) return fast; 
+        while(fast!=slow){
             slow=slow.next;
             fast=fast.next;
         }
-        return null;
+        return fast;
     }
 }
