@@ -19,7 +19,7 @@ class Solution {
                 max=nums[j];
                 j=nge[j];
             }
-            ans[z++]=max;
+            ans[i]=max;
         }
         return ans;
     }
