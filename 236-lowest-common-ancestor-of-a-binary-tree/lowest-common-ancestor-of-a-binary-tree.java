@@ -17,8 +17,8 @@ class Solution {
         if(p==root || q==root) return root;
         boolean pInLST=exists(root.left,p);
         boolean qInLST=exists(root.left,q);
-        if(pInLST==true && qInLST==true) return lowestCommonAncestor(root.left,p,q);
-        if(pInLST==false && qInLST==false) return lowestCommonAncestor(root.right,p,q);
+        if(pInLST && qInLST) return lowestCommonAncestor(root.left,p,q);
+        if(!pInLST && !qInLST) return lowestCommonAncestor(root.right,p,q);
         else return root;
     }
 }
