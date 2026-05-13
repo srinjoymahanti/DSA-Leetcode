@@ -14,7 +14,12 @@
  * }
  */
 class Solution {
-    private void nthLevel(TreeNode temp,List<List<Integer>> ans,int level){
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> ans=new ArrayList<>();
+        nthLevel(root,ans,0);
+        return ans;
+    }
+     private void nthLevel(TreeNode temp,List<List<Integer>> ans,int level){
         if(temp==null) return;
         if(level>=ans.size()){
            ans.add(new ArrayList<>());
@@ -23,10 +28,5 @@ class Solution {
         nthLevel(temp.left,ans,level+1);
         nthLevel(temp.right,ans,level+1);
 
-    }
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> ans=new ArrayList<>();
-        nthLevel(root,ans,0);
-        return ans;
     }
 }
