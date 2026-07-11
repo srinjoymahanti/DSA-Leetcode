@@ -4,14 +4,14 @@ class Solution {
         s[a]=s[b];
         s[b]=temp;
     }
+    public void reverse(char[] s,int low,int high){
+        if(low>=high) return;
+        swap(s,low,high);
+        low++;
+        high--;
+        reverse(s,low,high);
+    }
     public void reverseString(char[] s) {
-        int n=s.length;
-        int low=0;
-        int high=n-1;
-        while(low<=high){
-            swap(s,low,high);
-            low++;
-            high--;
-        }
+        reverse(s,0,s.length-1);
     }
 }
