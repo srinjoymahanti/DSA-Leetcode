@@ -1,7 +1,6 @@
 class Solution {
     public String removeOuterParentheses(String s) {
         StringBuilder str=new StringBuilder();
-        Stack<Character> st=new Stack<>();
         int balance=0;
         for(char ch:s.toCharArray()){
             if(ch=='('){
