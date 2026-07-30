@@ -23,9 +23,9 @@ public class Solution {
             tempB=tempB.next;
             sizeB++;
         }
+        ListNode slow=null;
+        ListNode fast=null;
         int n=Math.abs(sizeA-sizeB);
-        ListNode slow;
-        ListNode fast;
         if(sizeA<sizeB){
             slow=headA;
             fast=headB;
