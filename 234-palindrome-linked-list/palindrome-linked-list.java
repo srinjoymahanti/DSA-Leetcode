@@ -18,7 +18,7 @@ class Solution {
     }
     public boolean isPalindrome(ListNode head) {
         ListNode newHead=new ListNode(head.val);
-        ListNode t1=head;
+        ListNode t1=head.next;
         ListNode t2=newHead;
         while(t1!=null){
             ListNode temp=new ListNode(t1.val);
