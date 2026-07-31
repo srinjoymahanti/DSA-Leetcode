@@ -14,25 +14,12 @@
  * }
  */
 class Solution {
-    static boolean flag;
-    public long max(TreeNode root){
-        if(root==null) return Long.MIN_VALUE;
-        Long leftMax=max(root.left);
-        if(leftMax>=root.val)  flag=false;
-        Long rightMax=max(root.right);
-        return Math.max(root.val,Math.max(leftMax,rightMax));
-    }
-    public long min(TreeNode root){
-        if(root==null) return Long.MAX_VALUE;
-        Long rightMin=min(root.right);
-        if(rightMin<=root.val) flag=false;
-        Long leftMin=min(root.left);
-        return Math.min(root.val,Math.min(leftMin,rightMin));
+    public boolean helper(TreeNode root,long min,long max){
+        if(root==null) return true;
+        if(root.val<=min || max<=root.val) return false;
+        return helper(root.left,min,root.val)&& helper(root.right,root.val,max);
     }
     public boolean isValidBST(TreeNode root) {
-        flag=true;
-        max(root);
-        min(root);
-        return flag;
+        return helper(root,Long.MIN_VALUE,Long.MAX_VALUE);
     }
 }
