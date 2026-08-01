@@ -13,23 +13,18 @@ class Solution {
         ListNode dummy=new ListNode(-1);
         ListNode temp=dummy;
         int carry=0;
-        while(l1!=null || l2!=null){
-            int val1=0;
-            int val2=0;
-            if(l1!=null) val1=l1.val;
-            if(l2!=null) val2=l2.val;
-            int val=val1+val2+carry;
-            if(val>9) carry=1;
-            else carry=0;
-            ListNode t=new ListNode(val%10);
-            temp.next=t;
-            temp=t;
-            if(l1!=null) l1=l1.next;
-            if(l2!=null) l2=l2.next;
-        }
-        if(carry==1){
-            ListNode t=new ListNode(1);
-            temp.next=t;
+        while(l1!=null || l2!=null || carry!=0){
+            int digit1=(l1!=null)?l1.val:0;
+            int digit2=(l2!=null)?l2.val:0;
+
+            int sum=digit1+digit2+carry;
+            ListNode newNode=new ListNode(sum%10);
+            temp.next=newNode;
+            temp=newNode;
+            carry=sum/10;
+
+            l1=(l1!=null)?l1.next:null;
+            l2=(l2!=null)?l2.next:null;
         }
         return dummy.next;
     }
