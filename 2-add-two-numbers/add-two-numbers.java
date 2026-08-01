@@ -18,19 +18,18 @@ class Solution {
             int val2=0;
             if(l1!=null) val1=l1.val;
             if(l2!=null) val2=l2.val;
-            int newVal=val1+val2+carry;
-            if(newVal>9) carry=1;
+            int val=val1+val2+carry;
+            if(val>9) carry=1;
             else carry=0;
-            ListNode t=new ListNode(newVal%10);
+            ListNode t=new ListNode(val%10);
             temp.next=t;
+            temp=t;
             if(l1!=null) l1=l1.next;
             if(l2!=null) l2=l2.next;
-            temp=temp.next;
         }
         if(carry==1){
-            ListNode t=new ListNode(carry);
+            ListNode t=new ListNode(1);
             temp.next=t;
-            temp=temp.next;
         }
         return dummy.next;
     }
