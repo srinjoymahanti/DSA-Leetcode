@@ -14,18 +14,17 @@
  * }
  */
 class Solution {
-    public void inorder(TreeNode node,List<TreeNode> list){
-        if(node==null) return;
-        inorder(node.left,list);
-        list.add(node);
-        inorder(node.right,list);
+    int sum;
+    public void reverseInorderSum(TreeNode node){
+        if(node == null) return;
+        reverseInorderSum(node.right);
+        node.val+=sum;
+        sum=node.val;
+        reverseInorderSum(node.left);
     }
     public TreeNode bstToGst(TreeNode root) {
-        List<TreeNode> list=new ArrayList<>();
-        inorder(root,list);
-        for(int i=list.size()-2;i>=0;i--){
-            list.get(i).val+=list.get(i+1).val;
-        }
+        sum=0;
+        reverseInorderSum(root);
         return root;
     }
 }
