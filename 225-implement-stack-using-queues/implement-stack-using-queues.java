@@ -1,5 +1,6 @@
 class MyStack {
     Queue<Integer> q=new LinkedList<>();
+
     public MyStack() {
         
     }
@@ -9,7 +10,7 @@ class MyStack {
         else{
             q.add(x);
             for(int i=1;i<=q.size()-1;i++){
-            q.add(q.remove());
+                q.add(q.remove());
             }
         }
     }
