@@ -9,8 +9,8 @@ class Solution {
             else map.put(ele,1);
         }
         HashSet<Integer> set=new HashSet<>();
-        for(int ele:map.keySet()){
-            set.add(map.get(ele));
+        for(int ele:map.values()){
+            set.add(ele);
         }
         return set.size()==map.size();
     }
