@@ -15,20 +15,20 @@
  */
 class Solution {
 
-    // public void helper(TreeNode temp,List<Integer> arr){
-    //     if(temp==null) return;
-    //     helper(temp.left,arr);
-    //     arr.add(temp.val);
-    //     helper(temp.right,arr);
-    // }
     // public List<Integer> inorderTraversal(TreeNode root) {
-    //     List<Integer> ans=new ArrayList<>();
-    //     helper(root,ans);
-    //     return ans;
+    //     List<Integer> list=new ArrayList<>();
+    //     helper(root,list);
+    //     return list;
+    // }
+    // public void helper(TreeNode node,List<Integer> list){
+    //     if(node==null) return;
+    //     helper(node.left,list);
+    //     list.add(node.val);
+    //     helper(node.right,list);
     // }
 
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ans=new ArrayList<>();
+        List<Integer> list=new ArrayList<>();
         Stack<TreeNode> st=new Stack<>();
         TreeNode curr=root;
         while(curr!=null || !st.isEmpty()){
@@ -37,9 +37,36 @@ class Solution {
                 curr=curr.left;
             }
             curr=st.pop();
-            ans.add(curr.val);
+            list.add(curr.val);
             curr=curr.right;
         }
-        return ans;
-    }    
+        return list;
+    }
+
+    // public List<Integer> inorderTraversal(TreeNode root) {
+    //     List<Integer> list=new ArrayList<>();
+    //     TreeNode curr=root;
+    //     while(curr!=null){
+    //         if(curr.left!=null){
+    //             TreeNode pred=curr.left;
+    //             while(pred.right!=null && pred.right!=curr){
+    //                 pred=pred.right;
+    //             }
+    //             if(pred.right==null){//linking
+    //                 pred.right=curr;
+    //                 curr=curr.left;
+    //             }
+    //             else{//unlinking
+    //                 pred.right=null;
+    //                 list.add(curr.val);
+    //                 curr=curr.right;
+    //             }
+    //         }
+    //         else{
+    //             list.add(curr.val);
+    //             curr=curr.right;
+    //         }
+    //     }
+    //     return list;
+    // }  
 }
