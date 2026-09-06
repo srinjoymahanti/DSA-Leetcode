@@ -14,24 +14,24 @@
  * }
  */
 class Solution {
-    public void invert(TreeNode temp){
-        if(temp==null) return;
-        TreeNode helper=temp.left;
-        temp.left=temp.right;
-        temp.right=helper;
-        invert(temp.left);
-        invert(temp.right);
+    public void invert(TreeNode node){
+        if(node==null) return;
+        TreeNode helper=node.left;
+        node.left=node.right;
+        node.right=helper;
+        invert(node.left);
+        invert(node.right);
     }
-    public boolean isSameTree(TreeNode p, TreeNode q) {
+    public boolean isSameTree(TreeNode p,TreeNode q){
         if(p==null && q==null) return true;
         if(p==null || q==null) return false;
-        if(p.val != q.val) return false;
+        if(p.val!=q.val) return false;
         if(!isSameTree(p.left,q.left)) return false;
         if(!isSameTree(p.right,q.right)) return false;
         return true;
     }
     public boolean isSymmetric(TreeNode root) {
         invert(root.right);
-        return isSameTree(root.left,root.right);
+        return isSameTree(root.right,root.left);
     }
 }
