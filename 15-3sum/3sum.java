@@ -8,8 +8,8 @@ class Solution {
             int j=i+1,k=n-1;
             while(j<k){
                 int sum=nums[i]+nums[j]+nums[k];
-                if(sum>0) k--;
-                else if(sum<0) j++;
+                if(sum<0) j++;
+                else if(sum>0) k--;
                 else{
                     List<Integer> list=new ArrayList<>();
                     list.add(nums[i]);
