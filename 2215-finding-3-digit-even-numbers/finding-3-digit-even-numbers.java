@@ -30,10 +30,10 @@ class Solution {
                 map.put(a,aFreq);
             }
         }
-        int[] ans=new int[list.size()];
+        int[] arr=new int[list.size()];
         for(int i=0;i<list.size();i++){
-            ans[i]=list.get(i);
+            arr[i]=list.get(i);
         }
-        return ans;
+        return arr;
     }
 }
