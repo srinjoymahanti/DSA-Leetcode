@@ -1,38 +1,35 @@
 class Solution {
-    public List<Integer> spiralOrder(int[][] arr) {       
-        List<Integer> ans=new ArrayList<>();
-        int m=arr.length;
-        int n=arr[0].length;
-        int minRow=0,maxRow=m-1,minCol=0,maxCol=n-1;
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> list=new ArrayList<>();
+        int n=matrix.length;
+        int m=matrix[0].length;
+        int minRow=0,maxRow=n-1,minCol=0,maxCol=m-1;
         while(minRow<=maxRow && minCol<=maxCol){
             //left to right
             for(int j=minCol;j<=maxCol;j++){
-                ans.add(arr[minRow][j]);
+                list.add(matrix[minRow][j]);
             }
+            if(minRow>maxRow || minCol>maxCol) break;
             minRow++;
-            if(minRow>maxRow || minCol>maxCol) break;
-
-            //top to bottom
+            //up to down
             for(int i=minRow;i<=maxRow;i++){
-                ans.add(arr[i][maxCol]);
+                list.add(matrix[i][maxCol]);
             }
-            maxCol--;
             if(minRow>maxRow || minCol>maxCol) break;
-
+            maxCol--;
             //right to left
             for(int j=maxCol;j>=minCol;j--){
-                ans.add(arr[maxRow][j]);
+                list.add(matrix[maxRow][j]);
             }
+            if(minRow>maxRow || minCol>maxCol) break;
             maxRow--;
-            if(minRow>maxRow || minCol>maxCol) break;
-
-            //bottom to top
+            //down to up
             for(int i=maxRow;i>=minRow;i--){
-                ans.add(arr[i][minCol]);
+                list.add(matrix[i][minCol]);
             }
-            minCol++;
             if(minRow>maxRow || minCol>maxCol) break;
+            minCol++;
         }
-        return ans;
+        return list;
     }
 }
