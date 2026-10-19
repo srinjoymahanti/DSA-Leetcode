@@ -12,14 +12,14 @@ class Solution {
             }
         }
         for(int i=0;i<n;i++){
-            int a=0;
-            int b=n-1;
-            while(a<b){
-                int temp=matrix[i][a];
-                matrix[i][a]=matrix[i][b];
-                matrix[i][b]=temp;
-                a++;
-                b--;
+            int left=0;
+            int right=n-1;
+            while(left<right){
+                int temp=matrix[i][left];
+                matrix[i][left]=matrix[i][right];
+                matrix[i][right]=temp;
+                left++;
+                right--;
             }
         }
     }
